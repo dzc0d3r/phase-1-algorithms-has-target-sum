@@ -1,9 +1,23 @@
 function hasTargetSum(array, target) {
   // Write your algorithm here
+  for (let i = 0; i < array.length; i++) {
+    const complement = target - array[i];
+
+    for (let j = i + 1; j < array.length; j++) {
+      if (array[j] === complement) {
+        return true; // If a pair is found
+      }
+    }
+  }
+  return false
 }
 
 /* 
   Write the Big O time complexity of your function here
+  
+  Time complexity looks like a solid O(n^2)
+  because of the nested second iteration using j < array.length
+  so it's O(n^2 - 1) => O(n^2) and space complexity is O(1) 
 */
 
 /* 
